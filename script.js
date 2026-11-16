@@ -209,6 +209,11 @@ document.querySelectorAll("[data-image]").forEach(slot => {
 // Highlight the section currently being read; every navigation link stays an anchor.
 const links = [...document.querySelectorAll('nav a[href^="#"]')];
 const sections = links.map(link => document.querySelector(link.getAttribute("href")));
+// Follow the actual sticky header height at every responsive breakpoint.
+const headerObserver = new ResizeObserver(entries => {
+  document.documentElement.style.scrollPaddingTop = `${Math.ceil(entries[0].target.getBoundingClientRect().height) + 18}px`;
+});
+headerObserver.observe(document.querySelector('.site-header'));
 let pendingFrame = false;
 function updateNavigation() {
   const boundary = document.querySelector(".site-header").getBoundingClientRect().height + 130;

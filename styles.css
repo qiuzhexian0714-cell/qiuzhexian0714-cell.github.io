@@ -537,3 +537,89 @@ body:has(.diagram-viewer[open]) { overflow: hidden; }
  .research-directions .research-context-map { margin-top: 28px; }
 }
 
+
+/* V2 local preview: bilingual introduction, research path and longer navigation. */
+.hero-intro-zh { max-width: 610px; color: var(--muted); font-size: 12px; line-height: 1.9; margin-top: 16px; }
+.research-directions .research-statement-grid h3 { font-size: clamp(28px, 2.7vw, 37px); overflow-wrap: break-word; }
+.path-column-labels, .path-list > li { display: grid; grid-template-columns: 1fr 1.3fr; gap: 50px; }
+.path-column-labels { color: var(--muted); font-size: 9px; letter-spacing: 1px; padding-bottom: 18px; border-bottom: 1px solid var(--line); }
+.path-list > li { padding: 28px 0; border-bottom: 1px solid var(--line); }
+.path-stage { display: flex; gap: 25px; align-items: baseline; }
+.path-stage .question-number { flex: 0 0 32px; color: var(--blue); font-size: 24px; }
+.path-stage h4 { font-size: 21px; line-height: 1.35; }
+.path-work { font-size: 15px; line-height: 1.85; }
+.path-list [lang="zh-CN"] { color: var(--muted); font-size: 12px; line-height: 1.9; margin-top: 9px; }
+@media (min-width: 901px) and (max-width: 1150px) {
+ .site-header { flex-direction: column; align-items: start; gap: 5px; padding-top: 16px; }
+ nav { gap: 20px; }
+}
+@media (max-width: 650px) {
+ .hero-intro-zh { font-size: 11px; }
+ .path-column-labels { display: none; }
+ .path-list > li { grid-template-columns: minmax(0, 1fr); gap: 16px; padding: 24px 0; }
+ .path-stage { gap: 16px; }
+ .path-stage h4 { font-size: 20px; }
+ .path-work { margin-left: 48px; font-size: 14px; }
+}
+/* Keep numbered navigation readable without horizontal overflow on phones. */
+@media (max-width: 650px) {
+ nav { width: 100%; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 12px; }
+ nav a { min-width: 0; font-size: 10px; overflow-wrap: anywhere; }
+ nav a span { display: inline; font-size: 8px; }
+ .research-screen { scroll-margin-top: 12px; }
+}
+
+/* V3: readable type and intrinsic sizing, using the existing visual system. */
+html { font-size: 100%; }
+.background-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1.45fr); }
+.background-column, .background-column > *, .award-list li > div, .research-statement-grid > *, .context-prose > * { min-width: 0; overflow-wrap: break-word; }
+.tool-list dd { overflow-wrap: anywhere; }
+.path-table { width: 100%; border-collapse: collapse; table-layout: fixed; text-align: left; }
+.path-table th, .path-table td { vertical-align: top; border-bottom: 1px solid var(--line); padding: 28px 0; font-weight: 400; }
+.path-table thead th { font-size: .8125rem; color: var(--blue); padding: 0 0 18px; }
+.path-table th:first-child { width: 35%; padding-right: 36px; }
+.path-table tbody th { font-size: 1.25rem; line-height: 1.4; }
+.path-table td { font-size: 1rem; line-height: 1.85; }
+.path-index { display: block; color: var(--blue); margin-bottom: 12px; }
+.path-table [lang="zh-CN"] { display: block; margin-top: 10px; color: var(--muted); font-size: .875rem; line-height: 1.9; }
+.research-directions .question-number { font-size: 24px; }
+@media (min-width: 651px) {
+ nav { gap: 20px; }
+ nav a { font-size: .8125rem; }
+ nav a span { font-size: .625rem; }
+ .eyebrow, .section-label, .small-label { font-size: .6875rem; }
+ .hero-intro, .practice-list li, .tool-list dd, .project-summary { font-size: 1rem; }
+ .tool-list dt, .award-list li > div { font-size: .9375rem; }
+ .award-list time, .award-list li > div span { font-size: .8125rem; }
+ .award-list li { grid-template-columns: 66px minmax(0,1fr); }
+ .profile-facts dd, .profile-facts strong, .text-link { font-size: .875rem; }
+ .profile-facts dd > span, .personal-details p { font-size: .8125rem; }
+ .profile-facts dt, .personal-details p > span { font-size: .625rem; }
+ .hero-intro-zh, .project-context, .publication-citation, .group-note { font-size: .8125rem; }
+ .publication-summary { font-size: .9375rem; }
+ .publication-status { font-size: .6875rem; }
+ .research-directions .research-chinese { font-size: .875rem; }
+ .research-directions .question-domain, .research-directions .question-domain-zh { font-size: .875rem; }
+ .research-directions .research-stage-label, .diagram-open { font-size: .75rem; }
+}
+@media (min-width: 901px) and (max-width: 1320px) {
+ .site-header { flex-direction: column; align-items: start; gap: 8px; padding-top: 16px; }
+ nav { width: 100%; justify-content: space-between; gap: 14px; }
+ .background-grid { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 32px; }
+ .awards-column { grid-column: 1 / -1; }
+ .award-list { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 0 32px; }
+}
+@media (min-width: 651px) and (max-width: 900px) {
+ nav { flex-wrap: wrap; justify-content: flex-start; gap: 4px 20px; }
+}
+@media (max-width: 650px) {
+ .background-grid { grid-template-columns: minmax(0,1fr); }
+ .path-table th:first-child { width: 36%; padding-right: 16px; }
+ .path-table th, .path-table td { padding-top: 20px; padding-bottom: 20px; }
+ .path-table tbody th { font-size: 1rem; overflow-wrap: break-word; }
+ .path-table thead th { font-size: .75rem; }
+ .path-table td { font-size: .875rem; line-height: 1.8; }
+ .path-table [lang="zh-CN"] { font-size: .75rem; }
+ .research-directions .question-list > li { grid-template-columns: 44px minmax(0,1fr); }
+ .research-directions .question-number { font-size: 20px; }
+}
